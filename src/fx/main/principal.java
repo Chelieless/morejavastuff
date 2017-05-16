@@ -2,12 +2,14 @@ package fx.main;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 
-public class principal extends Application {
+public class principal extends Application implements EventHandler<ActionEvent> {
 	
 	Button ok;
 	
@@ -24,6 +26,7 @@ public class principal extends Application {
 		
 		ok = new Button();
 		ok.setText("OK");
+		ok.setOnAction(this);
 		
 		StackPane layout = new StackPane();
 		layout.getChildren().add(ok);
@@ -32,6 +35,15 @@ public class principal extends Application {
 		primary.setScene(scena);
 		primary.show();
 		
+	}
+
+	@Override
+	public void handle(ActionEvent act) {
+		if(act.getSource() == ok) {
+			
+			System.out.println("Hello handsome!");
+			
+		}
 	}
 
 }

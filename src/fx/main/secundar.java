@@ -26,6 +26,7 @@ public class secundar extends Application{
 		
 		ok = new Button();
 		ok.setText("OK");
+		ok.setOnAction(e -> System.out.println("whatever man"));
 		
 		StackPane panou = new StackPane();
 		panou.getChildren().add(ok);

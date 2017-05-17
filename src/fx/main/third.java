@@ -18,7 +18,7 @@ public class third extends Application{
 	Button bt1, bt2;
 	Scene sc1, sc2;
 	Label label1, label2;
-	Stage window;
+	static Stage window;
 	
 	public static void main(String[] args) {
 		
@@ -32,7 +32,20 @@ public class third extends Application{
 		
 		window.setTitle("TEST");
 		
+		window.setOnCloseRequest(e -> {
+			
+			e.consume();
+			quitProgram();
+			
+		});
+		
 		bt1 = new Button("JUS' A TEST");
+		
+		bt2 = new Button("Quit Program");
+		
+		bt2.setOnAction(e -> {
+			quitProgram();
+		});
 		
 		label1 = new Label("Test label");
 		
@@ -42,7 +55,7 @@ public class third extends Application{
 		});
 		
 		VBox panou = new VBox();
-		panou.getChildren().addAll(label1, bt1);
+		panou.getChildren().addAll(label1, bt1, bt2);
 		panou.setAlignment(Pos.CENTER);
 		panou.setSpacing(25);
 		
@@ -53,4 +66,17 @@ public class third extends Application{
 		window.show();
 	}
 
+	public static void quitProgram() { 
+		
+		boolean answer = boxes.quit("Quit", "Are you sure you want to quit?");
+		if(answer) {
+			
+			window.close();
+			
+		}
+		
+		
+	}
+	
+	
 }

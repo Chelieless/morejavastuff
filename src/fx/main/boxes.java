@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 
 public class boxes {
 	
+	static boolean answer = false;
+	
 	public static void alert(String title, String message) {
 		
 		Stage window = new Stage();
@@ -37,5 +39,45 @@ public class boxes {
 		
 		
 	}
-
+	
+	public static boolean quit(String title, String message) {
+		
+		
+		Stage window = new Stage();
+		window.setTitle(title);
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setMinWidth(300);
+		window.setMinHeight(150);
+		window.setResizable(false);
+		
+		Label text = new Label();
+		text.setText(message);
+		Button yes = new Button("Yes");
+		Button no = new Button("No");
+		
+		yes.setOnAction(e -> {
+			
+			answer = true;
+			window.close();
+			
+		});
+		no.setOnAction(e -> {
+			
+			answer = false;
+			window.close();
+			
+		});
+		
+		VBox panel = new VBox();
+		panel.getChildren().addAll(yes, no);
+		panel.setAlignment(Pos.CENTER);
+		panel.setSpacing(25);
+		
+		Scene scena = new Scene(panel);
+		window.setScene(scena);
+		window.showAndWait();
+		
+		return answer;
+		
+	}
 }

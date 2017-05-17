@@ -1,5 +1,7 @@
 package fx.main;
 
+import java.util.Random;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.event.EventHandler;
@@ -13,12 +15,18 @@ import javafx.stage.Stage;
 import javafx.geometry.*;
 
 
+@SuppressWarnings("unused")
+
 public class third extends Application{
 	
 	Button bt1, bt2;
 	Scene sc1, sc2;
 	Label label1, label2;
 	static Stage window;
+	
+	String[] nume = {"ABC", "BCA", "CBA"};
+	
+	int picker;
 	
 	public static void main(String[] args) {
 		
@@ -31,6 +39,7 @@ public class third extends Application{
 		window = primary;
 		
 		window.setTitle("TEST");
+		window.setResizable(false);
 		
 		window.setOnCloseRequest(e -> {
 			
@@ -47,10 +56,14 @@ public class third extends Application{
 			quitProgram();
 		});
 		
-		label1 = new Label("Test label");
+		picker = (int)(Math.random() * nume.length);
+		String iname = nume[picker];
+		label1 = new Label("Program's Baby: " + iname);
 		
 		bt1.setOnAction(e -> {
-			label1.setText("IT'S WURKING");
+			picker = (int)(Math.random() * nume.length);
+			String fnume = nume[picker];
+			label1.setText("Program's Baby: " + fnume);
 			boxes.alert("You motherf...", "You just changed my baby's text :(");
 		});
 		

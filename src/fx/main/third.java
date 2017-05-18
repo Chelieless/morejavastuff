@@ -79,7 +79,7 @@ public class third extends Application{
 		window.show();
 	}
 
-	public static void quitProgram() { 
+	private static void quitProgram() { 
 		
 		boolean answer = boxes.quit("Quit", "Are you sure you want to quit?");
 		if(answer) {

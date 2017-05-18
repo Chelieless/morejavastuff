@@ -4,6 +4,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -46,8 +47,8 @@ public class boxes {
 		Stage window = new Stage();
 		window.setTitle(title);
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setMinWidth(300);
-		window.setMinHeight(150);
+		window.setMinWidth(175);
+		window.setMinHeight(75);
 		window.setResizable(false);
 		
 		Label text = new Label();
@@ -68,7 +69,7 @@ public class boxes {
 			
 		});
 		
-		VBox panel = new VBox();
+		HBox panel = new HBox();
 		panel.getChildren().addAll(yes, no);
 		panel.setAlignment(Pos.CENTER);
 		panel.setSpacing(25);
